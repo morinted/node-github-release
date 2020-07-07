@@ -31,8 +31,8 @@ export default class CommandLine {
             .action(options => {
                 this.getUserAndRepoFromGitConfig().then(result => {
                     const ghRelease = this.setupGitHubRelease();
-                    const user = result ? result.user : options.user;
-                    const repo = result ? result.repo : options.repo;
+                    const user = options.user || (result ? result.user : undefined);
+                    const repo = options.repo || (result ? result.repo : undefined);
                     if (user === undefined || repo === undefined) {
                         info.outputHelp();
                         this.process.exit(1);
@@ -68,8 +68,8 @@ export default class CommandLine {
             .action(options => {
                 this.getUserAndRepoFromGitConfig().then(result => {
                     const ghRelease = this.setupGitHubRelease();
-                    const user = result ? result.user : options.user;
-                    const repo = result ? result.repo : options.repo;
+                    const user = options.user || (result ? result.user : undefined);
+                    const repo = options.repo || (result ? result.repo : undefined);
                     const tag = options.tag;
                     const name = options.name;
                     const description = options.description;
@@ -103,8 +103,8 @@ export default class CommandLine {
             .action(options => {
                 this.getUserAndRepoFromGitConfig().then(result => {
                     const ghRelease = this.setupGitHubRelease();
-                    const user = result ? result.user : options.user;
-                    const repo = result ? result.repo : options.repo;
+                    const user = options.user || (result ? result.user : undefined);
+                    const repo = options.repo || (result ? result.repo : undefined);
                     const tag = options.tag;
                     const name = options.name;
                     const description = options.description;
@@ -135,8 +135,8 @@ export default class CommandLine {
             .action(options => {
                 this.getUserAndRepoFromGitConfig().then(result => {
                     const ghRelease = this.setupGitHubRelease();
-                    const user = result ? result.user : options.user;
-                    const repo = result ? result.repo : options.repo;
+                    const user = options.user || (result ? result.user : undefined);
+                    const repo = options.repo || (result ? result.repo : undefined);
                     const tag = options.tag;
                     const name = options.name;
                     const label = options.label;
@@ -162,8 +162,8 @@ export default class CommandLine {
             .action(options => {
                 this.getUserAndRepoFromGitConfig().then(result => {
                     const ghRelease = this.setupGitHubRelease();
-                    const user = result ? result.user : options.user;
-                    const repo = result ? result.repo : options.repo;
+                    const user = options.user || (result ? result.user : undefined);
+                    const repo = options.repo || (result ? result.repo : undefined);
                     const tag = options.tag;
 
                     if (user === undefined || repo === undefined || tag === undefined) {
